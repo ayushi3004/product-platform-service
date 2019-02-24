@@ -19,8 +19,8 @@ public class Product {
     @Column(name = "breadcrumbs", nullable = false)
     private String breadcrumbs;
 
-    @Column(name = "storename", nullable = false)
-    private String storename;
+    @Column(name = "storeName", nullable = false)
+    private String storeName;
 
     public long getId() {
         return id;
@@ -54,11 +54,11 @@ public class Product {
         this.breadcrumbs = breadcrumbs;
     }
 
-    public String getStorename() {
-        return storename;
+    public String getStoreName() {
+        return storeName;
     }
 
-    public void setStorename(String storename) {
-        this.storename = storename;
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
     }
 }

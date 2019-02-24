@@ -4,5 +4,5 @@ CREATE TABLE Products(
     name VARCHAR(100) NOT NULL,
     price integer NOT NULL,
     breadcrumbs VARCHAR(200) NOT NULL,
-    storename VARCHAR(20) NOT NULL
+    storeName VARCHAR(20) NOT NULL
 );
