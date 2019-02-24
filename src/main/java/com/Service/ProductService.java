@@ -24,4 +24,9 @@ public class ProductService {
                         .orElseThrow(() -> new ResourceNotFoundException("Product with id:" + id + " not found"));
         return ResponseEntity.ok().body(product);
     }
+
+    public ResponseEntity<Product> postProduct(Product product) {
+        Product pr = productRepository.save(product);
+        return ResponseEntity.ok().body(pr);
+    }
 }
