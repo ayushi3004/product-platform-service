@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS Product;
 DROP TABLE IF EXISTS Comment;
 
-CREATE TABLE Product(
+CREATE TABLE Products(
     productId serial PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     price integer NOT NULL,
@@ -9,10 +9,10 @@ CREATE TABLE Product(
     storeName VARCHAR(20) NOT NULL
 );
 
-CREATE TABLE Comment(
+CREATE TABLE Comments(
     commentId serial PRIMARY KEY,
     userName VARCHAR(100),
     message VARCHAR(500),
     productId INTEGER,
-    CONSTRAINT fk_comment_product FOREIGN KEY ("productid") REFERENCES PRODUCT ("productid")
+    CONSTRAINT fk_comment_product FOREIGN KEY ("productid") REFERENCES PRODUCTS ("productid")
 );
