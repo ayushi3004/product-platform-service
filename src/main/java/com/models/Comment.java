@@ -21,14 +21,6 @@ public class Comment {
     @JoinColumn(name = "productid", referencedColumnName = "productid")
     private Product product;
 
-    public int getCommentId() {
-        return commentId;
-    }
-
-    public void setCommentId(int commentId) {
-        this.commentId = commentId;
-    }
-
     public String getUserName() {
         return userName;
     }

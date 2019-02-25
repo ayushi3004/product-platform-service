@@ -1,8 +1,6 @@
 package com.service;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import com.models.Comment;
 import com.models.Product;
 import com.repository.ProductRepository;
