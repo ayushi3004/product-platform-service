@@ -1,6 +1,9 @@
 package com.service;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import com.models.Comment;
 import com.models.Product;
 import com.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +32,13 @@ public class ProductService {
     public ResponseEntity<Product> postProduct(Product product) {
         Product pr = productRepository.save(product);
         return ResponseEntity.ok().body(pr);
+    }
+
+    public ResponseEntity<List<Comment>> getCommentsById(long id) {
+        Product product =
+                productRepository
+                        .findById(id)
+                        .orElseThrow(() -> new ResourceNotFoundException("Product with id:" + id + " not found"));
+        return ResponseEntity.ok().body(product.getComments());
     }
 }
