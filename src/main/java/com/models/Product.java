@@ -27,14 +27,6 @@ public class Product {
     @OneToMany(fetch = FetchType.EAGER, mappedBy="product",cascade = CascadeType.PERSIST)
     private List<Comment> comments = new ArrayList<>();
 
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
-
     public long getProductId() {
         return productId;
     }
@@ -73,5 +65,13 @@ public class Product {
 
     public void setStoreName(String storeName) {
         this.storeName = storeName;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }
