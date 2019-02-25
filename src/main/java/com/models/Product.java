@@ -1,14 +1,16 @@
-package com.Bean;
+package com.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "Products")
+@Table(name = "Product")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private long id;
+    @Column(name = "productId", nullable = false)
+    private int productId;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -22,12 +24,23 @@ public class Product {
     @Column(name = "storeName", nullable = false)
     private String storeName;
 
-    public long getId() {
-        return id;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy="product",cascade = CascadeType.PERSIST)
+    private List<Comment> comments = new ArrayList<>();
+
+    public List<Comment> getComments() {
+        return comments;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
     public String getName() {

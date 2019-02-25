@@ -1,6 +1,6 @@
-package com.Controller;
+package com.exception;
 
-import com.Bean.ExceptionResponse;
+import com.exception.ExceptionResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
