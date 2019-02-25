@@ -13,6 +13,6 @@ CREATE TABLE comments(
     commentId serial PRIMARY KEY,
     userName VARCHAR(100),
     message VARCHAR(500),
-    productId INTEGER,
+    productId BIGINT,
     CONSTRAINT fk_comment_product FOREIGN KEY ("productid") REFERENCES PRODUCTS ("productid")
 );
