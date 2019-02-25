@@ -21,6 +21,10 @@ public class Comment {
     @JoinColumn(name = "productid", referencedColumnName = "productid")
     private Product product;
 
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
     public String getUserName() {
         return userName;
     }

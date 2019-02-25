@@ -45,4 +45,9 @@ public class MyController {
     public ResponseEntity<Comment> getCommentsByPid(@PathVariable(value = "pid") Long pid, @PathVariable(value = "cid") Long cid) throws Exception{
         return productService.getCommentsByCid(pid, cid);
     }
+
+    @RequestMapping(method = POST, path = "/products/{pid}/comments")
+    public ResponseEntity<Product> postComments(@PathVariable(value = "pid") Long id, @RequestBody Comment comment) {
+        return productService.postComments(id, comment);
+    }
 }

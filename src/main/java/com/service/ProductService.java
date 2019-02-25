@@ -3,6 +3,7 @@ package com.service;
 import java.util.List;
 import com.models.Comment;
 import com.models.Product;
+import com.repository.CommentRepository;
 import com.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
@@ -13,6 +14,8 @@ import org.springframework.stereotype.Service;
 public class ProductService {
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private CommentRepository commentRepository;
 
     public ResponseEntity<List<Product>> getAllProducts() {
         List<Product> products = productRepository.findAll();
@@ -53,5 +56,30 @@ public class ProductService {
             throw new Exception("Comment with id:"+ cid +" not found");
         }
         return ResponseEntity.ok().body(comment);
+    }
+
+    public ResponseEntity<Product> postComments(long pid, Comment comment) {
+        /*
+        Check if any such product is present
+         */
+        Product product = productRepository
+                        .findById(pid)
+                        .orElseThrow(() -> new ResourceNotFoundException("Product with id:" + pid + " not found"));
+
+        /*
+        Update in comments table corresponding to that product id
+         */
+        comment.setProduct(product);
+        commentRepository.save(comment);
+
+        /*
+        Update commentList in products table for that product id
+         */
+        List<Comment> productComments = product.getComments();
+        productComments.add(comment);
+        product.setComments(productComments);
+        product = productRepository.save(product);
+
+        return ResponseEntity.ok().body(product);
     }
 }
