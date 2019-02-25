@@ -23,7 +23,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
     value = "Product platform service",
     description = "Operations related to products and comments on them")
 @RestController
-public class MyController {
+public class ApiController {
 
   @Autowired ProductService productService;
 
