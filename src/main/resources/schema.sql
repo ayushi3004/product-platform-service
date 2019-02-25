@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS Product;
-DROP TABLE IF EXISTS Comment;
+DROP TABLE IF EXISTS comments;
+DROP TABLE IF EXISTS products;
 
-CREATE TABLE Products(
+CREATE TABLE products(
     productId serial PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     price integer NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE Products(
     storeName VARCHAR(20) NOT NULL
 );
 
-CREATE TABLE Comments(
+CREATE TABLE comments(
     commentId serial PRIMARY KEY,
     userName VARCHAR(100),
     message VARCHAR(500),
