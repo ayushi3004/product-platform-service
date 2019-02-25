@@ -34,11 +34,26 @@ public class ProductService {
         return ResponseEntity.ok().body(pr);
     }
 
-    public ResponseEntity<List<Comment>> getCommentsById(long id) {
+    public ResponseEntity<List<Comment>> getCommentsByPid(long id) {
         Product product =
                 productRepository
                         .findById(id)
                         .orElseThrow(() -> new ResourceNotFoundException("Product with id:" + id + " not found"));
         return ResponseEntity.ok().body(product.getComments());
+    }
+
+    public ResponseEntity<Comment> getCommentsByCid(long pid, long cid) throws Exception{
+        Product product =
+                productRepository
+                        .findById(pid)
+                        .orElseThrow(() -> new ResourceNotFoundException("Product with id:" + pid + " not found"));
+
+        Comment comment;
+        try {
+            comment = product.getComments().get((int)cid-1);
+        }catch (Exception e){
+            throw new Exception("Comment with id:"+ cid +" not found");
+        }
+        return ResponseEntity.ok().body(comment);
     }
 }

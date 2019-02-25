@@ -37,7 +37,12 @@ public class MyController {
     }
 
     @RequestMapping(method = GET, path = "/products/{id}/comments")
-    public ResponseEntity<List<Comment>> getCommentsById(@PathVariable(value = "id") Long id) {
-        return productService.getCommentsById(id);
+    public ResponseEntity<List<Comment>> getCommentsByPid(@PathVariable(value = "id") Long id) {
+        return productService.getCommentsByPid(id);
+    }
+
+    @RequestMapping(method = GET, path = "/products/{pid}/comments/{cid}")
+    public ResponseEntity<Comment> getCommentsByPid(@PathVariable(value = "pid") Long pid, @PathVariable(value = "cid") Long cid) throws Exception{
+        return productService.getCommentsByCid(pid, cid);
     }
 }
