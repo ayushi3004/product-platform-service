@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  docker-postgres:
+    image: postgres:latest
+    volumes:
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+  api-docker-demo:
+    build: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - docker-postgres
