@@ -29,12 +29,23 @@ It internally uses a `CommentValidationService` to validate comments posted.
 Clone this repo. Then follow these steps:
 ```
 $ docker-compose build   #Build the image
-
 $ docker-compose up -d   #Build the images(if not present) and start the containers in detached mode
-
 $ docker-compose down    #Stop the containers when done
 ```
 Access the API on `http://localhost:8080/swagger-ui.html#/`
 
+**Project structure**
+
+![Project structure](images/ps.png)
+
+**Design**
+
+Postgres db schema: `schema.sql`
+Models(Exposed Bean): `Swagger UI -> Models`
+
+**Further scope**
+- Expose more endpoints - PUT/DELETE
+- Have more stringent validation on model fields
+- Allow database migration and version control - Eg: Flyway
 
 
