@@ -3,8 +3,8 @@ package com.service;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,10 +18,8 @@ public class CommentValidationService {
   }
 
   void loadFile() throws Exception {
-    ClassLoader classLoader = getClass().getClassLoader();
-    File file = new File(classLoader.getResource("hateSpeech.csv").getFile());
-    FileReader fr = new FileReader(file);
-    BufferedReader br = new BufferedReader(fr);
+    InputStream is = getClass().getResourceAsStream("/hateSpeech.csv");
+    BufferedReader br = new BufferedReader(new InputStreamReader(is));
     String line;
     String csvSplitBy = ",";
 
