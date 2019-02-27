@@ -23,24 +23,20 @@ It internally uses a `CommentValidationService` to validate comments posted.
 
 **Tech/framework used**
 
-The API is built in `Java using Spring Boot framework`. The build tool used is `Gradle`.
-
-It internally uses `PostgreSQL` for storing data.
-
-
-The API is exposed using `Swagger` endpoints and a `Swagger UI` for convenience.
-
-The entire service has been containerized using `Docker`.
+- The API is built in `Java using Spring Boot framework`. The build tool used is `Gradle`.
+- It internally uses `PostgreSQL` for storing data.
+- The API is exposed using `Swagger` endpoints and has a `Swagger UI` for convenience.
+- The entire service has been containerized using `Docker`.
 
 **Build**
 
 Clone this repo. Then follow these steps:
 
-`docker-compose build #Build the image`
+`$ docker-compose build   #Build the image`
 
-`docker-compose up -d #Build the images(if not present) and start the containers in detached mode`
+`$ docker-compose up -d   #Build the images(if not present) and start the containers in detached mode`
 
-`docker-compose down #Stop the containers when done `
+`$ docker-compose down    #Stop the containers when done `
 
 Access the API on `http://localhost:8080/swagger-ui.html#/`
 
