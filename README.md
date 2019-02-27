@@ -6,18 +6,14 @@ This is a sample REST API exposing product and comment information for an e-comm
 **Features**
 
 The API has the following REST endpoints:
-
-`GET /products`
-
-`POST /products`
-
-`GET /products/{id}`
-
-`GET /products/{id}/comments`
-
-`POST /products/{id}/comments`
-
-`GET /products/{id}/comments/{id}`
+```
+GET     /products
+POST    /products
+GET     /products/{id}
+GET     /products/{id}/comments
+POST    /products/{id}/comments
+GET     /products/{id}/comments/{id}
+```
 
 It internally uses a `CommentValidationService` to validate comments posted.
 
@@ -31,13 +27,13 @@ It internally uses a `CommentValidationService` to validate comments posted.
 **Build**
 
 Clone this repo. Then follow these steps:
+```
+$ docker-compose build   #Build the image
 
-`$ docker-compose build   #Build the image`
+$ docker-compose up -d   #Build the images(if not present) and start the containers in detached mode
 
-`$ docker-compose up -d   #Build the images(if not present) and start the containers in detached mode`
-
-`$ docker-compose down    #Stop the containers when done `
-
+$ docker-compose down    #Stop the containers when done
+```
 Access the API on `http://localhost:8080/swagger-ui.html#/`
 
 
