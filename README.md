@@ -1,7 +1,7 @@
 **About**
 
 
-This is a sample REST API exposing product and comment information for an e-commerce platform. It has a validation service to moderate/validate the comment text to prevent customers from posting objectionable content. It takes a piece of text as an input and responds with feedback regarding objectionable content. It can be wired up to use any hate speech detector and serve as response accordingly.
+This is a sample REST API exposing product and comment information for an e-commerce platform. It has a validation service to moderate/validate the comment text to prevent customers from posting objectionable content. It takes a piece of text as an input and responds with feedback regarding objectionable content. It can be wired up to use any hate speech detector/ML model and serve as response accordingly.
 
 **Features**
 
@@ -41,6 +41,7 @@ Access the API on `http://localhost:8080/swagger-ui.html#/`
 **Design**
 
 Postgres db schema: `schema.sql`
+
 Models(Exposed Bean): `Swagger UI -> Models`
 
 **Further scope**
@@ -49,3 +50,8 @@ Models(Exposed Bean): `Swagger UI -> Models`
 - Allow database migration and version control - Eg: Flyway
 
 
+**References/Useful resources**
+
+Profanity list - https://www.cs.cmu.edu/~biglou/resources/bad-words.txt
+
+For classification model - https://www.kaggle.com/kmader/from-hate-speech-to-russian-bot-tweets/data
