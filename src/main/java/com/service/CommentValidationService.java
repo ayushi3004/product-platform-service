@@ -10,8 +10,8 @@ import java.util.Map;
 
 @Service
 public class CommentValidationService {
-  static Map<String, Double> wordMap = new HashMap<>();
   static final Double SCORE_THRESHOLD = 0.472;
+  static Map<String, Double> wordMap = new HashMap<>();
 
   public CommentValidationService() throws Exception {
     loadFile();

@@ -23,7 +23,7 @@ repositories {
 compileJava {
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
-    mainClassName       = "com.Application"
+    mainClassName = "com.Application"
 }
 
 dependencies {
