@@ -14,5 +14,6 @@ CREATE TABLE comments(
     userName VARCHAR(100),
     message VARCHAR(500),
     productId BIGINT,
+    validCommentFlag boolean,
     CONSTRAINT fk_comment_product FOREIGN KEY ("productid") REFERENCES PRODUCTS ("productid")
 );
