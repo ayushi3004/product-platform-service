@@ -9,6 +9,7 @@ import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -31,6 +32,7 @@ public class ProductService {
   }
 
   public ResponseEntity<Product> postProduct(Product product) {
+    product.setComments(new ArrayList<Comment>());
     Product pr = productRepository.save(product);
     return ResponseEntity.ok().body(pr);
   }
@@ -55,7 +57,7 @@ public class ProductService {
     try {
       comment = product.getComments().get((int) cid - 1);
     } catch (Exception e) {
-      throw new Exception("Comment with id:" + cid + " not found");
+      throw new Exception("Comment " + cid + " does not exist");
     }
     return ResponseEntity.ok().body(comment);
   }
