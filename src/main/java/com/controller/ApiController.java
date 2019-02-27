@@ -2,6 +2,7 @@ package com.controller;
 
 import com.models.Comment;
 import com.models.Product;
+import com.service.CommentValidationService;
 import com.service.ProductService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,6 +27,11 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 public class ApiController {
 
   @Autowired ProductService productService;
+  @Autowired CommentValidationService commentValidationService;
+
+  public ApiController() throws Exception {
+    commentValidationService = new CommentValidationService();
+  }
 
   @ApiOperation(value = "View list of products", response = List.class)
   @ApiResponses(
@@ -92,7 +98,11 @@ public class ApiController {
       })
   @RequestMapping(method = POST, path = "/products/{pid}/comments")
   public ResponseEntity<Product> postComments(
-      @PathVariable(value = "pid") Long id, @RequestBody Comment comment) {
-    return productService.postComments(id, comment);
+      @PathVariable(value = "pid") Long id, @RequestBody Comment comment) throws Exception {
+    boolean validCommentFlag = commentValidationService.validateComment(comment.getMessage());
+    ResponseEntity<Product> re = productService.postComments(id, comment, validCommentFlag);
+
+    if (validCommentFlag) return re;
+    else throw new Exception("This comment can not be posted as it violates our rules of content.");
   }
 }

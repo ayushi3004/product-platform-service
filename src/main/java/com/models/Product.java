@@ -1,6 +1,7 @@
 package com.models;
 
 import io.swagger.annotations.ApiModelProperty;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "products")
-public class Product {
+public class Product{
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @ApiModelProperty(notes = "The auto-generated version of product")
@@ -33,6 +34,7 @@ public class Product {
 
   @ApiModelProperty(notes = "Comments on product")
   @OneToMany(fetch = FetchType.EAGER, mappedBy = "product", cascade = CascadeType.PERSIST)
+  @Where(clause = "validCommentFlag = true")
   private List<Comment> comments = new ArrayList<>();
 
   public long getProductId() {

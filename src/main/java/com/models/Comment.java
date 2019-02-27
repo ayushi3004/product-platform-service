@@ -18,13 +18,16 @@ public class Comment {
   @Column(name = "userName", nullable = false)
   private String userName;
 
-  @ApiModelProperty(notes = "Comment")
+  @ApiModelProperty(notes = "Comment message")
   @Column(name = "message", nullable = false)
   private String message;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "productid", referencedColumnName = "productid")
   private Product product;
+
+  @Column(name = "validCommentFlag", nullable = false)
+  private boolean validCommentFlag;
 
   public String getUserName() {
     return userName;
@@ -44,5 +47,9 @@ public class Comment {
 
   public void setProduct(Product product) {
     this.product = product;
+  }
+
+  public void setValidCommentFlag(boolean validCommentFlag) {
+    this.validCommentFlag = validCommentFlag;
   }
 }

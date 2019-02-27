@@ -60,7 +60,7 @@ public class ProductService {
     return ResponseEntity.ok().body(comment);
   }
 
-  public ResponseEntity<Product> postComments(long pid, Comment comment) {
+  public ResponseEntity<Product> postComments(long pid, Comment comment, boolean validCommentFlag) {
     /*
     Check if any such product is present
      */
@@ -74,6 +74,7 @@ public class ProductService {
     Update in comments table corresponding to that product id
      */
     comment.setProduct(product);
+    comment.setValidCommentFlag(validCommentFlag);
     commentRepository.save(comment);
 
     /*
