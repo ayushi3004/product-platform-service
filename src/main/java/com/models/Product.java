@@ -9,10 +9,14 @@ import java.util.List;
 
 @Entity
 @Table(name = "products")
-public class Product{
-  @Id
+public class Product {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @ApiModelProperty(notes = "The auto-generated version of product")
+  @ApiModelProperty(notes = "The auto-generated version of product", hidden = true)
+  @Column(name = "id", nullable = false)
+  private long id;
+
+  @Id
+  @ApiModelProperty(notes = "Product id")
   @Column(name = "productId", nullable = false)
   private long productId;
 

@@ -2,7 +2,8 @@ DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS products;
 
 CREATE TABLE products(
-    productId serial PRIMARY KEY,
+    id serial,
+    productId BIGINT NOT NULL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     price integer NOT NULL,
     breadcrumbs VARCHAR(200) NOT NULL,
