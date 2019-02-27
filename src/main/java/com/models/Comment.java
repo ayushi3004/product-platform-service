@@ -1,5 +1,6 @@
 package com.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
@@ -22,10 +23,13 @@ public class Comment {
   @Column(name = "message", nullable = false)
   private String message;
 
+  @JsonIgnore
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "productid", referencedColumnName = "productid")
   private Product product;
 
+  @ApiModelProperty(hidden = true)
+  @JsonIgnore
   @Column(name = "validCommentFlag", nullable = false)
   private boolean validCommentFlag;
 
