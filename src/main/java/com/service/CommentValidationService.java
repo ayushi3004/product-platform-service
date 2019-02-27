@@ -23,10 +23,10 @@ public class CommentValidationService {
     FileReader fr = new FileReader(file);
     BufferedReader br = new BufferedReader(fr);
     String line;
-    String cvsSplitBy = ",";
+    String csvSplitBy = ",";
 
     while ((line = br.readLine()) != null) {
-      String[] wordNscore = line.split(cvsSplitBy);
+      String[] wordNscore = line.split(csvSplitBy);
       wordMap.put(wordNscore[0], Double.parseDouble(wordNscore[1]));
     }
   }
