@@ -44,9 +44,17 @@ Postgres db schema: `schema.sql`
 
 Models(Exposed Bean): `Swagger UI -> Models`
 
+**Screenshots**
+
+![Models](images/models.png)
+
+![API](images/API.png)
+
+
 **Further scope**
 - Expose more endpoints - PUT/DELETE
 - Have more stringent validation on model fields
+- Allow pagination in results
 - Allow database migration and version control - Eg: Flyway
 
 
